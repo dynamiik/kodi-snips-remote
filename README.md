@@ -1,6 +1,6 @@
 # kodi-snips-remote
 # Controll kodi via snips
-With this script it is possible to control kodi via snips. The snips Entities Injection must be installed. The IP and login data for kodi must be insert in the mqtt script. HTTP control in Kodi must be enabled. It is possible to start a kodi navigaton loop. This will start a snips session loop. The hotword is now not necessary for a better navigation through the kodi gui
+With this script it is possible to control kodi via snips. The snips entities injection must be installed. The IP and login data for kodi must be insert in the mqtt script. HTTP control in Kodi must be enabled. It is possible to start a kodi navigaton loop. This will start a snips session loop. The hotword is now not necessary for a better navigation through the kodi gui. To start the scrip run the mqtt.py.
 # Functions:
 * Entities Injection to get the titles from kodi library in the snips assistant
 * Play show
@@ -32,7 +32,7 @@ With this script it is possible to control kodi via snips. The snips Entities In
   * Musicplaylist
   * Fullscreenvideo
 * Kodi navigation loop
-* Navigate through the gui
+* Navigate through the gui (only while kodi navigation loop)
   * Left
   * Right
   * Up
@@ -49,3 +49,116 @@ With this script it is possible to control kodi via snips. The snips Entities In
   * Parentdir
   * Scrollup
   * Scrolldown
+  
+# Snips config
+For the Script the following apps with slots are used:
+* datenbank:
+  * hey snips synchronise library
+* play_movie:
+  * hey snips start the movie iron man
+  * add the select_movie intent in case multiple titles will be found e.g. iron man 1, iron man 2, iron man 3
+  * slotname: movies
+  * slotvalue:  -filled from injection
+* select_movie:
+  * iron man 3
+  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple    sessions are found. so it is possible to only say the movie name without hey snips...
+  * slotname: movies
+  * slotvalue:  -filled from injection
+* play_show:
+  * hey snips play the show marvels iron fist, hey snips play a random episode of futurama
+  * slotname: shows
+  * slotvalue:  -filled from injection
+  * slotname: random
+  * slotvalue: random +synonyms
+* select_show:
+  * if multiple shows are found e.g hey snips play the show marvels - marvels iron fist, marvels luke cake....
+  * slotname: shows
+  * slotvalue:  -filled from injection
+* play_genre:
+  * hey snips play pop music
+  * slotname: genre
+  * slotvalue:  -filled from injection
+* play_artist:
+  * hey snips play songs by lady gaga
+  * slotname: artist
+  * slotvalue:  -filled from injection
+* play_album:
+  * hey snips play album ...
+  * slotname: albums
+  * slotvalue:  -filled from injection
+* kodiNavigator:
+  * hey snips start navigator
+  * slotname: startstop
+  * slotvalue: start, stop +synonyms
+* kodiInputNavigation:
+  * up, left, okay, back, search for movies with marvels
+  * this intent only works if the navigator loop started
+  * slotname: kodiinput
+  * slotvalue: (value, synonyms)
+    * left, links, nach links
+    * right, rechts, nach rechts
+    * up, hoch, nach oben
+    * down, runter, nach unten
+    * pageup, eine seite hoch, eine seite nach oben
+    * pagedown, eine seite runter, eine seite nach unten
+    * select, okay, öffnen
+    * back, zurück
+    * info, information
+    * playlist, öffne wiedergabe liste
+    * queue, in playlist einreihen, zur playlist hinzufügen, zur wiedergabeliste hinzufügen
+    * close, schließen
+    * togglewatched, wechsel gesehen status
+    * parentdir, ein ordner nach oben
+    * scrollup, scroll hoch, hoch scrollen, nach oben scrollen
+    * scrolldown, sroll runter, runter scrollen, nach unten scrollen
+* kodiWindowNavigation:
+  * hey snips open movies, home, addons
+  * slotname: windows
+  * slotvalues: (value, synonyms)
+    * videos, Filme
+    * shows, Serien
+    * music, Musik
+    * addon, Add ons
+    * useraddon, benutzer addon
+    * videoaddon, video addon
+    * audiaddon, musik addon
+    * executableaddon, programm addon
+    * home, hauptmenü
+    * videoplaylist, video playlist, video wiedergabeliste
+    * musicplaylist, musik playlist, musik wiedergabeliste
+    * fullscreenvideo, zurück zum video, zurück zur wiedergabe, zurück zum film, zurück zur serie, zurück zur folge
+* KodiPause:
+  * hey snips papuse
+* KodiResume:
+  * hey snips resume
+* KodiStop:
+  * hey snips stop player
+* KodiNext:
+  * hey snips play next song/episode
+* KodiPrevious:
+  * hey snips play previous
+* KodiShuffleON:
+  * hey snips set suffle on
+* KodiShuffleOFF:
+  * hey snips set suffle off
+* subtitles:
+  * hey snips set subtitles off
+  * slotname: on_off
+  * slotvalue: on, off +synonyms
+* search_show:
+  * hey snips search show marvel
+  * slotname: shows
+  * slotvalue:  -filled from injection
+* search_movie:
+  * hey snips search movie spider
+  * slotname: movies
+  * slotvalue:  -filled from injection
+* search_artist:
+  * hey snips search artist eminem
+  * slotname: artist
+  * slotvalue:  -filled from injection
+* search_album:
+  * hey snips search album relapse
+  * slotname: albums
+  * slotvalue:  -filled from injection
+
