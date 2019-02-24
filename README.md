@@ -48,3 +48,4 @@ togglewatched
 parentdir
 scrollup
 scrolldown
+
