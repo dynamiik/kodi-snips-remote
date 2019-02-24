@@ -55,43 +55,43 @@ For the Script the following apps with slots are used:
 * datenbank:
   * hey snips synchronise library
 * play_movie:
-  * hey snips start the movie iron man
+  * hey snips start the movie iron man(slot)
   * add the select_movie intent in case multiple titles will be found e.g. iron man 1, iron man 2, iron man 3
   * slotname: movies
   * slotvalue:  -filled from injection
 * select_movie:
-  * iron man 3
+  * iron man 3(slot)
   * this intent will only work if the session is keept alive with the customData "media_selected" when multiple    sessions are found. so it is possible to only say the movie name without hey snips...
   * slotname: movies
   * slotvalue:  -filled from injection
 * play_show:
-  * hey snips play the show marvels iron fist, hey snips play a random episode of futurama
+  * hey snips play the show marvels iron fist(slot), hey snips play a random(slot) episode of futurama(slot)
   * slotname: shows
   * slotvalue:  -filled from injection
   * slotname: random
   * slotvalue: random +synonyms
 * select_show:
-  * if multiple shows are found e.g hey snips play the show marvels - marvels iron fist, marvels luke cake....
+  * marvels iron fist, marvels luke cake....
   * slotname: shows
   * slotvalue:  -filled from injection
 * play_genre:
-  * hey snips play pop music
+  * hey snips play pop(slot) music
   * slotname: genre
   * slotvalue:  -filled from injection
 * play_artist:
-  * hey snips play songs by lady gaga
+  * hey snips play songs by lady gaga(slot)
   * slotname: artist
   * slotvalue:  -filled from injection
 * play_album:
-  * hey snips play album ...
+  * hey snips play album(slot) ...
   * slotname: albums
   * slotvalue:  -filled from injection
 * kodiNavigator:
-  * hey snips start navigator
+  * hey snips start(slot) navigator
   * slotname: startstop
   * slotvalue: start, stop +synonyms
 * kodiInputNavigation:
-  * up, left, okay, back, search for movies with marvels
+  * up, left, okay, back
   * this intent only works if the navigator loop started
   * slotname: kodiinput
   * slotvalue: (value, synonyms)
@@ -112,7 +112,7 @@ For the Script the following apps with slots are used:
     * scrollup, scroll hoch, hoch scrollen, nach oben scrollen
     * scrolldown, sroll runter, runter scrollen, nach unten scrollen
 * kodiWindowNavigation:
-  * hey snips open movies, home, addons
+  * hey snips open movies(slot)
   * slotname: windows
   * slotvalues: (value, synonyms)
     * videos, Filme
@@ -142,23 +142,23 @@ For the Script the following apps with slots are used:
 * KodiShuffleOFF:
   * hey snips set suffle off
 * subtitles:
-  * hey snips set subtitles off
+  * hey snips set subtitles off(slot)
   * slotname: on_off
   * slotvalue: on, off +synonyms
 * search_show:
-  * hey snips search show marvel
+  * hey snips search show marvel(slot)
   * slotname: shows
   * slotvalue:  -filled from injection
 * search_movie:
-  * hey snips search movie spider
+  * hey snips search movie spider(slot)
   * slotname: movies
   * slotvalue:  -filled from injection
 * search_artist:
-  * hey snips search artist eminem
+  * hey snips search artist eminem(slot)
   * slotname: artist
   * slotvalue:  -filled from injection
 * search_album:
-  * hey snips search album relapse
+  * hey snips search album relapse(slot)
   * slotname: albums
   * slotvalue:  -filled from injection
 
