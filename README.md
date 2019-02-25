@@ -1,6 +1,6 @@
 # kodi-snips-remote
 # Controll kodi via snips
-With this script you can control Kodi via Snips. You can control the player, start or search for movies, shows and music, open different windows of the Kodi gui or use the Kodi navigaton loop. This will start a Snips session automaticaly when the old session ends. The Snips hotword is now not necessary for a faster navigation through the Kodi gui. It is also possible to say only a part of the title and the script will search and display the result in the kodi gui, for all titles in the kodi library that contain the said word. The script checks if Kodi is reachable.
+With this script you can control Kodi via Snips. You can control the player, start or search for movies, shows and music, open different windows of the Kodi gui or use the Kodi navigaton loop. This will start a Snips session automaticaly when the old session ends. The Snips hotword is now not necessary for a faster navigation through the Kodi gui. It is also possible to say only a part of the title and the script will search and display the result in the kodi gui, for all titles in the kodi library that contains the said word. The script checks if Kodi is reachable.
 
 # Functions:
 * Entities Injection to get the titles from Kodi media-library in the Snips assistant
