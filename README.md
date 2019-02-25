@@ -1,6 +1,6 @@
 # kodi-snips-remote
 # Controll kodi via snips
-With this script you can control Kodi via Snips. You can control the player, start or search for movies, shows and music, open different windows of the Kodi gui or use the Kodi navigaton loop. This will start a Snips session automaticaly when the old session ends. The Snips hotword is now not necessary for a faster navigation through the Kodi gui. The script checks if Kodi is reachable.
+With this script you can control Kodi via Snips. You can control the player, start or search for movies, shows and music, open different windows of the Kodi gui or use the Kodi navigaton loop. This will start a Snips session automaticaly when the old session ends. The Snips hotword is now not necessary for a faster navigation through the Kodi gui. It is also possible to say only a part of the title and the script will search and display the result in the kodi gui, for all titles in the kodi library that contain the said word. The script checks if Kodi is reachable.
 
 # Functions:
 * Entities Injection to get the titles from Kodi media-library in the Snips assistant
@@ -62,7 +62,7 @@ For the script the following Snips-apps with slots are used:
   * slotvalue:  -filled from injection
 * select_movie:
   * iron man 3(slot)
-  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple    sessions are found. so it is possible to only say the movie name without hey Snips...
+  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple movie titles are found. so it is possible to only say the movie name without hey Snips hotword.
   * slotname: movies
   * slotvalue:  -filled from injection
 * play_show:
@@ -73,6 +73,7 @@ For the script the following Snips-apps with slots are used:
   * slotvalue: random +synonyms
 * select_show:
   * marvels iron fist, marvels luke cake....
+  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple shows are found. so it is possible to only say the show name without hey Snips hotword.
   * slotname: shows
   * slotvalue:  -filled from injection
 * play_genre:
