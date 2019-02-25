@@ -1,8 +1,9 @@
 # kodi-snips-remote
 # Controll kodi via snips
-With this script it is possible to control kodi via snips. The snips entities injection must be installed. The IP and login data for kodi must be insert in the mqtt script. HTTP control in Kodi must be enabled. It is possible to start a kodi navigaton loop. This will start a snips session loop. The hotword is now not necessary for a better navigation through the kodi gui. To start the scrip run the mqtt.py.
+With this script you can control Kodi via Snips. It is possible to start a Kodi navigaton loop. This will start a Snips session automaticaly when the old session ends. The Snips hotword is now not necessary for a faster navigation through the Kodi gui.
+
 # Functions:
-* Entities Injection to get the titles from kodi library in the snips assistant
+* Entities Injection to get the titles from Kodi media-library in the Snips assistant
 * Play show
 * Play (random) episodes of show
 * Play movie
@@ -12,7 +13,7 @@ With this script it is possible to control kodi via snips. The snips entities in
 * Search for shows and display results in gui 
 * Search for movies and display results in gui
 * Search for album and display results in gui
-* Search for song artists and display results in gui
+* Search for songs from artists and display results in gui
 * Set subtitles on/off
 * Set shuffle on/off
 * Play/pause
@@ -32,7 +33,7 @@ With this script it is possible to control kodi via snips. The snips entities in
   * Musicplaylist
   * Fullscreenvideo
 * Kodi navigation loop
-* Navigate through the gui (only while kodi navigation loop)
+* Navigate through the gui (only while Kodi navigation loop)
   * Left
   * Right
   * Up
@@ -51,21 +52,21 @@ With this script it is possible to control kodi via snips. The snips entities in
   * Scrolldown
   
 # Snips config
-For the Script the following apps with slots are used:
+For the script the following Snips-apps with slots are used:
 * datenbank:
-  * hey snips synchronise library
+  * hey Snips synchronise library
 * play_movie:
-  * hey snips start the movie iron man(slot)
+  * hey Snips start the movie iron man(slot)
   * add the select_movie intent in case multiple titles will be found e.g. iron man 1, iron man 2, iron man 3
   * slotname: movies
   * slotvalue:  -filled from injection
 * select_movie:
   * iron man 3(slot)
-  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple    sessions are found. so it is possible to only say the movie name without hey snips...
+  * this intent will only work if the session is keept alive with the customData "media_selected" when multiple    sessions are found. so it is possible to only say the movie name without hey Snips...
   * slotname: movies
   * slotvalue:  -filled from injection
 * play_show:
-  * hey snips play the show marvels iron fist(slot), hey snips play a random(slot) episode of futurama(slot)
+  * hey Snips play the show marvels iron fist(slot), hey Snips play a random(slot) episode of futurama(slot)
   * slotname: shows
   * slotvalue:  -filled from injection
   * slotname: random
@@ -75,19 +76,19 @@ For the Script the following apps with slots are used:
   * slotname: shows
   * slotvalue:  -filled from injection
 * play_genre:
-  * hey snips play pop(slot) music
+  * hey Snips play pop(slot) music
   * slotname: genre
   * slotvalue:  -filled from injection
 * play_artist:
-  * hey snips play songs by lady gaga(slot)
+  * hey Snips play songs by lady gaga(slot)
   * slotname: artist
   * slotvalue:  -filled from injection
 * play_album:
-  * hey snips play album(slot) ...
+  * hey Snips play album(slot) ...
   * slotname: albums
   * slotvalue:  -filled from injection
 * kodiNavigator:
-  * hey snips start(slot) navigator
+  * hey Snips start(slot) navigator
   * slotname: startstop
   * slotvalue: start, stop +synonyms
 * kodiInputNavigation:
@@ -112,7 +113,7 @@ For the Script the following apps with slots are used:
     * scrollup, scroll hoch, hoch scrollen, nach oben scrollen
     * scrolldown, sroll runter, runter scrollen, nach unten scrollen
 * kodiWindowNavigation:
-  * hey snips open movies(slot)
+  * hey Snips open movies(slot)
   * slotname: windows
   * slotvalues: (value, synonyms)
     * videos, Filme
@@ -128,37 +129,50 @@ For the Script the following apps with slots are used:
     * musicplaylist, musik playlist, musik wiedergabeliste
     * fullscreenvideo, zurück zum video, zurück zur wiedergabe, zurück zum film, zurück zur serie, zurück zur folge
 * KodiPause:
-  * hey snips papuse
+  * hey Snips papuse
 * KodiResume:
-  * hey snips resume
+  * hey Snips resume
 * KodiStop:
-  * hey snips stop player
+  * hey Snips stop player
 * KodiNext:
-  * hey snips play next song/episode
+  * hey Snips play next song/episode
 * KodiPrevious:
-  * hey snips play previous
+  * hey Snips play previous
 * KodiShuffleON:
-  * hey snips set suffle on
+  * hey Snips set suffle on
 * KodiShuffleOFF:
-  * hey snips set suffle off
+  * hey Snips set suffle off
 * subtitles:
-  * hey snips set subtitles off(slot)
+  * hey Snips set subtitles off(slot)
   * slotname: on_off
   * slotvalue: on, off +synonyms
 * search_show:
-  * hey snips search show marvel(slot)
+  * hey Snips search show marvel(slot)
   * slotname: shows
   * slotvalue:  -filled from injection
 * search_movie:
-  * hey snips search movie spider(slot)
+  * hey Snips search movie spider(slot)
   * slotname: movies
   * slotvalue:  -filled from injection
 * search_artist:
-  * hey snips search artist eminem(slot)
+  * hey Snips search artist eminem(slot)
   * slotname: artist
   * slotvalue:  -filled from injection
 * search_album:
-  * hey snips search album relapse(slot)
+  * hey Snips search album relapse(slot)
   * slotname: albums
   * slotvalue:  -filled from injection
+# install
+The script uses the Eclipse's paho.mqtt library. https://github.com/eclipse/paho.mqtt.python
 
+The Snips entities injection must be installed. https://docs.snips.ai/articles/advanced/dynamic-vocabulary
+
+In kodi you must enable HTTP control: Settings/Services/Control > Allow remote control via HTTP must be enabled. Choose a 
+Username, Password and Port
+
+Change following values in the snips_remote.py:
+* Kodi Username, Password, IP, Port
+* MQTT server IP and Port
+* Snips username 
+
+To start the scrip run the snips_remote.py
