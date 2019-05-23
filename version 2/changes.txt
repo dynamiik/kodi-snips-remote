@@ -1,0 +1,16 @@
+TV mode: 
+I made a tag "tv" for shows in Kodi and add all my shows which i can watch in shuffle order like friends, how i met your mother..
+I made a smart playlist named "tv" for every show with tag "tv" and set sort to random.
+If i say "hey snips watch tv" the playlist "tv" will be played so a random episode of a random show with the tag "tv" will be 
+played just like when i turn on the tv and watch whatever is played
+
+Music:
+when i say "hey snips play the radio" snips will turn on the party mode to play random music from the kodi library.
+
+added the ability to play songs from a genre and an album 
+
+Shuffle can now set to on and off instead of just switching the actual state.
+
+Kodi wakeup will simulate a up key press to wake up kodi from stand by
+
+Speedup the webRTC by deleting all unnecessary things
